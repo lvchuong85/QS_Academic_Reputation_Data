@@ -103,7 +103,7 @@ const payload = {
   try {
     // Thay đường dẫn dưới đây bằng HTTP POST URL lấy từ Power Automate Trigger
     //const flowUrl = 'https://default4ef784396d6c4ea0ab1449b9284ab4.c9.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/05/workflows/ddc121a6de1a4bbeae591f2457a3c47f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=C69-c0mxvndOqp5KFfq1IPfdIQXkPqLU16fGnGNZPdU';
-    const flowUrl = 'https://default4ef784396d6c4ea0ab1449b9284ab4.c9.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/13/workflows/218bd6a3d09546cca86441031c9ec0d7/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=CdUlBoFX3ukeBKjFwRwezp6YQg0oZJJA4KXMDfb2yfM';
+    const flowUrl = 'https://61ffb916de74eab99e6eab795e2433.9d.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/11/workflows/39338c7ab6dd419bac30556af002afc4/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=IJD8dTghkgY13InfFRXRNhMLlCipd99NgTzRKJpDuyY';
     const response = await fetch(flowUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
