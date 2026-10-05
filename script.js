@@ -102,8 +102,8 @@ const payload = {
 
   try {
     // Thay đường dẫn dưới đây bằng HTTP POST URL lấy từ Power Automate Trigger
-    const flowUrl = 'https://default4ef784396d6c4ea0ab1449b9284ab4.c9.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/05/workflows/ddc121a6de1a4bbeae591f2457a3c47f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=C69-c0mxvndOqp5KFfq1IPfdIQXkPqLU16fGnGNZPdU';
-    //const flowUrl = 'https://default4ef784396d6c4ea0ab1449b9284ab4.c9.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/11/workflows/dbf7e052a4624e8ea794ee5be2cbbbcd/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=oeo6WLpMb8qAhqMxbJIAcNJ3ka65ZBCEVjrTa_F0KpQ';
+    //const flowUrl = 'https://default4ef784396d6c4ea0ab1449b9284ab4.c9.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/05/workflows/ddc121a6de1a4bbeae591f2457a3c47f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=C69-c0mxvndOqp5KFfq1IPfdIQXkPqLU16fGnGNZPdU';
+    const flowUrl = 'https://default4ef784396d6c4ea0ab1449b9284ab4.c9.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/13/workflows/218bd6a3d09546cca86441031c9ec0d7/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=CdUlBoFX3ukeBKjFwRwezp6YQg0oZJJA4KXMDfb2yfM';
     const response = await fetch(flowUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
