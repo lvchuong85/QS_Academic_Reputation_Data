@@ -81,7 +81,7 @@ form.addEventListener('submit', async event => {
     return;
   }
 
-const payload = {
+  const payload = {
     Title: form.title.value,
     FirstName: form.firstName.value.trim(),
     LastName: form.lastName.value.trim(),
@@ -101,23 +101,27 @@ const payload = {
   submitButton.textContent = 'SUBMITTING…';
 
   try {
-    // Thay đường dẫn dưới đây bằng HTTP POST URL lấy từ Power Automate Trigger
-    //const flowUrl = 'https://default4ef784396d6c4ea0ab1449b9284ab4.c9.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/05/workflows/ddc121a6de1a4bbeae591f2457a3c47f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=C69-c0mxvndOqp5KFfq1IPfdIQXkPqLU16fGnGNZPdU';
-    const flowUrl = 'https://61ffb916de74eab99e6eab795e2433.9d.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/11/workflows/39338c7ab6dd419bac30556af002afc4/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=IJD8dTghkgY13InfFRXRNhMLlCipd99NgTzRKJpDuyY';
-    const response = await fetch(flowUrl, {
+    // Thay đường dẫn bên dưới bằng URL Web App lấy từ Google Apps Script Deploy
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxj1ntbI8qlmtOjXqEj9MLp_-DLziUp6w036nrUmfoAZ70gJPU17rag6TUi0ta7qtPV/exec';
+    
+    const response = await fetch(scriptUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      // Dùng text/plain để tránh lỗi CORS Preflight Request trên trình duyệt
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     });
 
-    if (!response.ok) {
-      throw new Error('Submission failed with status: ' + response.status);
+    const result = await response.json();
+
+    if (result.result !== 'success') {
+      throw new Error(result.error || 'Submission failed');
     }
 
     console.log('QS Academic Contact Registration payload:', payload);
     window.location.href = 'success.html';
   } catch (error) {
-    console.error(error);
+    console.error('Error submitting form:', error);
+    alert('Submission failed. Please try again.');
     submitButton.disabled = false;
     submitButton.innerHTML = originalHTML;
   }
